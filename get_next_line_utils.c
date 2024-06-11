@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:05:58 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/11 17:23:56 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:34:54 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strjoin(char *dest, char const *src)
 	while (src[j] && src[j] != '\n')
 		str[i++] = src[j++];
 	if (src[j] == '\n')
-		str[i++] == '\n';
+		str[i++] = '\n';
 	str[i] = 0;
 	free(dest);
 	return (str);
@@ -56,8 +56,8 @@ int	check_and_clear(char *line)
 	int	j;
 	int	flag;
 
-	if (line == NULL)
-		return (NULL);
+	if (!line)
+		return (0);
 	i = 0;
 	j = 0;
 	flag = 0;
