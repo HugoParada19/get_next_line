@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:26:27 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/11 17:38:25 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:41:24 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	buff = malloc (1);
+	buff = malloc(1);
 	if (buff == NULL)
 		return (NULL);
 	buff[0] = 0;
