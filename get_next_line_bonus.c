@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:55:43 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/12 11:40:04 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:07:09 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	line[8][BUFFER_SIZE + 1];
+	static char	line[FOPEN_MAX][BUFFER_SIZE + 1];
 	char		*buff;
 	int			chars_r;
 

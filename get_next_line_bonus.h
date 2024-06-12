@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:35:54 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/12 11:50:51 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:06:57 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <stdio.h>
 
 size_t	ft_strlen(char const *str);
 char	*ft_strjoin(char *dest, char const *src);
