@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:35:54 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/12 11:25:31 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:50:51 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ size_t	ft_strlen(char const *str);
 char	*ft_strjoin(char *dest, char const *src);
 bool	check_and_clear(char *buf);
 char	*free_mem(char *mem);
+char	*get_next_line(int fd);
 
 #endif
