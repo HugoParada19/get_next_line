@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 17:26:27 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/12 11:36:10 by htrindad         ###   ########.fr       */
+/*   Created: 2024/06/12 10:55:43 by htrindad          #+#    #+#             */
+/*   Updated: 2024/06/12 11:40:04 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	next_l[BUFFER_SIZE + 1];
-	int			chars_r;
+	static char	line[8][BUFFER_SIZE + 1];
 	char		*buff;
+	int			chars_r;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > 7 || BUFFER_SIZE < 1)
 		return (NULL);
 	buff = malloc(1);
 	if (buff == NULL)
 		return (NULL);
 	buff[0] = 0;
-	buff = ft_strjoin(buff, next_l);
-	if (check_and_clear(next_l))
+	buff = ft_strjoin(buff, line[fd]);
+	if (check_and_clear(line[fd]))
 		return (buff);
-	chars_r = read(fd, next_l, BUFFER_SIZE);
+	chars_r = read(fd, line[fd], BUFFER_SIZE);
 	if (chars_r < 1 && (!*buff))
-		return (free_gnl(buff));
+		return (free_mem(buff));
 	while (chars_r > 0)
 	{
-		next_l[chars_r] = 0;
-		buff = ft_strjoin(buff, next_l);
-		if (check_and_clear(next_l))
+		line[fd][chars_r] = 0;
+		buff = ft_strjoin(buff, line[fd]);
+		if (check_and_clear(line[fd]))
 			break ;
-		chars_r = read(fd, next_l, BUFFER_SIZE);
+		chars_r = read(fd, line[fd], BUFFER_SIZE);
 	}
 	return (buff);
 }
@@ -46,13 +46,20 @@ char	*get_next_line(int fd)
 
 int main()
 {
-	const int times = 4;
-	int fd = open("test.txt", O_RDONLY);
+	int fd[2];
 	char *str;
+	const int times = 4;
 
+	fd[0] = open("test.txt", O_RDONLY);
+	fd[1] = open("test2.txt", O_RDONLY);
 	for (int i = 0; i < times; i++)
 	{
-		printf("%s\n", str = get_next_line(fd));
+		printf("%s\n", str = get_next_line(fd[0]));
+		free(str);
+	}
+	for (int i = 0; i < times; i++)
+	{
+		printf("%s\n", str = get_next_line(fd[1]));
 		free(str);
 	}
 }
