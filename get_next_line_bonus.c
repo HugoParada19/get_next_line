@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:55:43 by htrindad          #+#    #+#             */
-/*   Updated: 2024/06/12 13:07:09 by htrindad         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:29:40 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	char		*buff;
 	int			chars_r;
 
-	if (fd < 0 || fd > 7 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > FOPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
 	buff = malloc(1);
 	if (buff == NULL)
